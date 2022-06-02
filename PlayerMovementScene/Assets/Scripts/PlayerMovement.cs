@@ -39,9 +39,15 @@ public class PlayerMovement : MonoBehaviour
     [Header("Jumping")]
     public float jumpForce = 5f;
 
+    //[Header("Crouching")]
+    //public float crouchSpeed;
+    //public float CrouchYScale;
+    //private float startYScale;
+
     [Header("Keybinds")]
     [SerializeField] KeyCode jumpKey = KeyCode.Space;
     [SerializeField] KeyCode sprintKey = KeyCode.LeftShift;
+    //[SerializeField] KeyCode crouchKey = KeyCode.C;
 
     [Header("Drag")]
     [SerializeField] float groundDrag = 6f;
@@ -70,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
             if (slopeHit.normal != Vector3.up)
             {
                 return true;
-            }    
+            }
             else
             {
                 return false;
@@ -100,6 +106,11 @@ public class PlayerMovement : MonoBehaviour
             Jump();
         }
 
+        //if (Input.GetKey(crouchKey))
+        {
+            //moveSpeed = crouchSpeed;
+        }
+
         SlopeMoveDirection = Vector3.ProjectOnPlane(moveDirection, slopeHit.normal);
     }
 
@@ -109,6 +120,21 @@ public class PlayerMovement : MonoBehaviour
         verticalMovement = Input.GetAxisRaw("Vertical");
 
         moveDirection = orientation.forward * verticalMovement + orientation.right * horizontalMovement;
+
+        //Start crouch
+        //if (Input.GetKeyDown(crouchKey))
+        {
+            //transform.localScale = new Vector3(transform.localScale.x, CrouchYScale, transform.localScale.z);
+            //rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
+        }
+
+        //Stop Crouch
+        //if (Input.GetKeyUp(crouchKey))
+        {
+            //transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
+            //rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
+        }
+           
     }
 
     void Jump()
@@ -127,7 +153,7 @@ public class PlayerMovement : MonoBehaviour
         {
             moveSpeed = Mathf.Lerp(moveSpeed, walkSpeed, acceleration * Time.deltaTime);
         }
-    }    
+    }
 
     void ControlDrag()
     {
@@ -148,16 +174,17 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer()
     {
+        //On Slope
         if (isGrounded && !OnSlope())
         {
             rb.AddForce(moveDirection.normalized * moveSpeed * movementMultiplier, ForceMode.Acceleration);
         }
-
+        //In Air
         else if (isGrounded && OnSlope())
         {
             rb.AddForce(SlopeMoveDirection.normalized * moveSpeed * movementMultiplier * airMultiplier, ForceMode.Acceleration);
         }
-
+        //On ground
         else if (!isGrounded)
         {
             rb.AddForce(moveDirection.normalized * moveSpeed * movementMultiplier * airMultiplier, ForceMode.Acceleration);

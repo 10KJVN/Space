@@ -332,13 +332,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 415607279}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.99, z: -5.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1781124114}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2135184580}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &509670329
@@ -1955,6 +1955,7 @@ GameObject:
   - component: {fileID: 2135184581}
   - component: {fileID: 2135184582}
   - component: {fileID: 2135184583}
+  - component: {fileID: 2135184584}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1994,6 +1995,7 @@ Transform:
   - {fileID: 338439776}
   - {fileID: 1264619172}
   - {fileID: 619382749}
+  - {fileID: 415607281}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2064,3 +2066,21 @@ MonoBehaviour:
   wallRunfovTime: 20
   camTilt: 20
   camTiltTime: 20
+--- !u!114 &2135184584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135184578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a5140a2653f02c4088407005a394cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientation: {fileID: 1264619172}
+  playerObj: {fileID: 2135184580}
+  maxSlideTime: 0.75
+  slideForce: 50
+  slideYScale: 0.5
+  slideKey: 306
