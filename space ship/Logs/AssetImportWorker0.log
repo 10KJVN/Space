@@ -212,3 +212,4 @@ Received Import Request.
   path: Assets/GabrielAguiarProductions/Unique_Projectiles_Volume_1/Scenes
   artifactKey: Guid(4317ba9a6531533449a37b1633c3c516) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/GabrielAguiarProductions/Unique_Projectiles_Volume_1/Scenes using Guid(4317ba9a6531533449a37b1633c3c516) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6163764ca73181d21e956245106e284f') in 0.006273 seconds 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
